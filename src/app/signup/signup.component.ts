@@ -26,10 +26,21 @@ export class SignupComponent {
     private toastr: ToastrService
   ) {
     this.signupForm = this.formBuilder.group({
+
+      name:['',[
+        Validators.required,
+      ]],
+      
+      address:['',[
+        Validators.required,
+      ]],
+
+
       email: ['', [
         Validators.required, 
         Validators.email
       ]],
+      
       password: ['', [
         Validators.required,
         Validators.minLength(8),
@@ -58,7 +69,9 @@ export class SignupComponent {
 
     const signupData: SignupModel = {
       email: this.signupForm.value.email,
-      password: this.signupForm.value.password
+      password: this.signupForm.value.password,
+      name: this.signupForm.value.name,
+      address: this.signupForm.value.address,
     };
 
     this.signupService.signup(signupData).subscribe({
