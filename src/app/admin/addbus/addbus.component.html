@@ -1,0 +1,240 @@
+<!-- navbar -->
+<div class="flex-1 flex flex-col overflow-hidden w-full">
+  <div class="bg-[#F0BB78] shadow-md z-20 relative">
+    <div class="px-600 flex justify-between items-center">
+      <div class="flex items-center space-x-96">
+        <button class="p-2 rounded-lg hover:bg-[#FFF0DC] text-black hover:text-[#1B355E] transition-colors duration-200">
+          <span class="material-icons">menu</span>
+        </button>
+        <div class="relative space-x-3">
+          <span class="absolute left-3 top-2 material-icons text-gray-400">search</span>
+          <input type="text" placeholder="Search..."
+                 class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFF0DC] bg-white text-[#1B355E]">
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-8">
+        <button class="p-2 relative hover:bg-[#FFF0DC] rounded-full text-black hover:text-black transition-colors duration-200">
+          <span class="material-icons">notifications</span>
+          <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+        </button>
+        <button class="p-2 relative hover:bg-[#FFF0DC] rounded-full text-black hover:text-[#1B355E] transition-colors duration-200">
+          <span class="material-icons">email</span>
+          <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">5</span>
+        </button>
+        <div class="flex items-center space-x-10 p-2 hover:bg-[#F1B434] rounded-lg cursor-pointer text-black hover:text-[#1B355E] transition-colors duration-200">
+          <img src="images/profile.jpg" alt="User Avatar" class="w-8 h-8 rounded-full">
+          <span class="font-medium hidden md:inline">Admin</span>
+          <span class="material-icons">arrow_drop_down</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content Section -->
+<div class="flex-grow flex items-center justify-center w-full py-4" style="background-color: #FFF0DC;">
+  <div 
+    class="main-panel w-full max-w-4xl mx-auto flex flex-col p-4"
+    style="display: flex; flex-direction: column; gap: 1rem; width: 100%;"
+  >
+    <h1 style="font-size: 1.5rem; font-weight: 600; text-align: center;">Add Bus</h1>
+
+    <!-- Bus Details -->
+    <div class="div_design" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+      <div style="flex: 1; min-width: 240px;">
+        <label for="bus_no" class="block text-gray-700 mb-2">Bus Number</label>
+        <input
+          id="bus_no"
+          class="text_color p-3 rounded-lg w-full"
+          type="text"
+          name="bus_no"
+          placeholder="BP-0-0000"
+          required
+          style="padding: 0.75rem; border: 1px solid #ccc; box-sizing: border-box;"
+        />
+      </div>
+      <div style="flex: 1; min-width: 240px;">
+        <label for="number_of_seats" class="block text-gray-700 mb-2">Number of Seats</label>
+        <input
+          id="number_of_seats"
+          class="text_color p-3 rounded-lg w-full"
+          type="number"
+          name="number_of_seats"
+          placeholder="Enter number of seats"
+          min="1"
+          required
+          style="padding: 0.75rem; border: 1px solid #ccc; box-sizing: border-box;"
+        />
+      </div>
+    </div>
+
+    <!-- Bus Brand and Company -->
+    <div class="div_design" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+      <div style="flex: 1; min-width: 240px;">
+        <label for="bus_brand" class="block text-gray-700 mb-2">Bus Brand/Model</label>
+        <select
+          id="bus_brand"
+          class="text_color p-3 rounded-lg w-full"
+          name="bus_brand"
+          required
+          style="padding: 0.75rem; border: 1px solid #ccc; box-sizing: border-box;"
+        >
+          <option value="" disabled selected>Select a bus brand/model</option>
+          <option value="volvo_b8r">Shuttle Bus</option>
+          <option value="mercedes_benz_citaro">Minibus</option>
+          <option value="scania_citywide">Costerbus</option>
+          <option value="man_lions_city">Double-Decker Bus</option>
+          <option value="tata_marcopolo">Single-Decker Bus</option>
+          <option value="">Low-Floor Bus</option>
+        </select>
+      </div>
+      <div style="flex: 1; min-width: 240px;">
+        <label for="company_name" class="block text-gray-700 mb-2">Company Name</label>
+        <select
+          id="company_name"
+          class="text_color p-3 rounded-lg w-full"
+          name="company_name"
+          required
+          style="padding: 0.75rem; border: 1px solid #ccc; box-sizing: border-box;"
+        >
+          <option value="" disabled selected>Bus Holder</option>
+          <option value="khorlo">Khorlo</option>
+          <option value="dungkhar">Dungkhar</option>
+          <option value="aup_nidup">Aup Nidup</option>
+          <option value="meto">Meto</option>
+          <option value="tashi">Tashi</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Location Section -->
+    <div class="div_design" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+      <div style="flex: 1; min-width: 240px;">
+        <label for="from_location" class="block text-gray-700 mb-2">From Location</label>
+        <select
+          id="from_location"
+          class="text_color p-3 rounded-lg w-full"
+          name="from_location"
+          required
+          style="padding: 0.75rem; border: 1px solid #ccc; box-sizing: border-box;"
+        >
+          <option value="" disabled selected>From</option>
+          <option value="GMC">GMC</option>
+          <option value="Thimphu">Thimphu</option>
+          <option value="Paro">Paro</option>
+          <option value="Chukha">Chukha</option>
+          <option value="Wangdue">Wangdue</option>
+          <option value="Punakha">Punakha</option>
+          <option value="Trongsa">Trongsa</option>
+          <option value="Bumthang">Bumthang</option>
+          <option value="Haa">Haa</option>
+          <option value="Dagana">Dagana</option>
+          <option value="Tsirang">Tsirang</option>
+          <option value="Mongar">Mongar</option>
+          <option value="Samtse">Samtse</option>
+          <option value="Tashigang">Tashigang</option>
+          <option value="Tashi Yangtse">Tashi Yangtse</option>
+          <option value="Samdrup Jongkhar">Samdrup Jongkhar</option>
+          <option value="Gasa">Gasa</option>
+          <option value="Lhuentshe">Lhuentshe</option>
+          <option value="Zhemgang">Zhemgang</option>
+          <option value="Pemagatshel">Pemagatshel</option>
+        </select>
+      </div>
+      <div style="flex: 1; min-width: 240px;">
+        <label for="to_location" class="block text-gray-700 mb-2">To Location</label>
+        <select
+          id="to_location"
+          class="text_color p-3 rounded-lg w-full"
+          name="to_location"
+          required
+          style="padding: 0.75rem; border: 1px solid #ccc; box-sizing: border-box;"
+        >
+          <option value="" disabled selected>To</option>
+          <option value="GMC">GMC</option>
+          <option value="Thimphu">Thimphu</option>
+          <option value="Paro">Paro</option>
+          <option value="Chukha">Chukha</option>
+          <option value="Wangdue">Wangdue</option>
+          <option value="Punakha">Punakha</option>
+          <option value="Trongsa">Trongsa</option>
+          <option value="Bumthang">Bumthang</option>
+          <option value="Haa">Haa</option>
+          <option value="Dagana">Dagana</option>
+          <option value="Tsirang">Tsirang</option>
+          <option value="Mongar">Mongar</option>
+          <option value="Samtse">Samtse</option>
+          <option value="Tashigang">Tashigang</option>
+          <option value="Tashi Yangtse">Tashi Yangtse</option>
+          <option value="Samdrup Jongkhar">Samdrup Jongkhar</option>
+          <option value="Gasa">Gasa</option>
+          <option value="Lhuentshe">Lhuentshe</option>
+          <option value="Zhemgang">Zhemgang</option>
+          <option value="Pemagatshel">Pemagatshel</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Date and Time Scheduled -->
+    <div class="div_design" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+      <div style="flex: 1; min-width: 160px;">
+        <label for="date" class="block text-gray-700 mb-2">Date</label>
+        <input
+          id="date"
+          class="text_color p-3 rounded-lg w-full"
+          type="date"
+          name="date"
+          required
+          style="padding: 0.75rem; border: 1px solid #ccc; box-sizing: border-box;"
+        />
+      </div>
+      <div style="flex: 1; min-width: 120px;">
+        <label for="time" class="block text-gray-700 mb-2">Time</label>
+        <input
+          id="time"
+          class="text_color p-3 rounded-lg w-full"
+          type="time"
+          name="time"
+          required
+          style="padding: 0.75rem; border: 1px solid #ccc; box-sizing: border-box;"
+        />
+      </div>
+      <div style="flex: 1; min-width: 80px;">
+        <label for="ampm" class="block text-gray-700 mb-2">AM/PM</label>
+        <select
+          id="ampm"
+          class="text_color p-3 rounded-lg w-full"
+          name="ampm"
+          required
+          style="padding: 0.75rem; border: 1px solid #ccc; box-sizing: border-box;"
+        >
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Bus Image Upload -->
+    <div class="div_design">
+      <label for="image" class="block text-gray-700 mb-2">Bus Image</label>
+      <input
+        id="image"
+        class="p-3 rounded-lg w-full"
+        type="file"
+        required
+        style="padding: 0.75rem; border: 1px solid #ccc; box-sizing: border-box;"
+      />
+    </div>
+
+    <!-- Add Bus Button -->
+    <div class="div_design">
+      <button
+        type="submit"
+        style="padding: 1rem; background-color: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; width: 100%; font-size: 1rem; font-weight: 600;"
+      >
+        Add Bus
+      </button>
+    </div>
+  </div>
+</div>
