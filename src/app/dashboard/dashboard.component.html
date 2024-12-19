@@ -1,61 +1,147 @@
-<div class="flex justify-center items-start h-screen bg-blue-50">
-    <div class="flex grow shrink basis-0 self-stretch">
-      <!-- Sidebar -->
-      <div class="w-[250px] bg-white">
-        <div class="p-6">
-          <div class="flex items-center gap-2">
-            <img src="https://via.placeholder.com/52x50" alt="Course Manager Logo" class="w-10 h-10" />
-            <div class="text-[#0d1b2a] text-sm font-bold font-['Inika'] uppercase leading-[18px] tracking-wide">Bus Booking System </div>
-          </div>
-        </div>
-        <div class="border-t border-gray-200 px-6 py-4">
-          <button class="bg-[#2374e1] rounded-md shadow flex items-center gap-3 px-4 py-2 text-white text-sm font-medium font-['Inter'] uppercase tracking-wide">
-            <div class="w-5 h-5 flex justify-center items-center">
-              <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-            <span>New Entry</span>
-          </button>
-        </div>
-        <nav class="border-t border-gray-200 px-6 py-4">
-          <div class="opacity-50 text-[#07003b] text-sm font-normal font-['Poppins'] tracking-wide mb-2">MAIN</div>
-          <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-100">
-            <div class="text-gray-600 text-base font-medium font-['Inter'] tracking-wide">Add Bus </div>
-          </a>
-          <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-100">
-            <div class="text-gray-600 text-base font-medium font-['Inter'] tracking-wide">Add Destenation </div>
-          </a>
-        </nav>
-      </div>
+  <!-- Responsive Navbar -->
   
-      <!-- Main Content -->
-      <div class="grow shrink basis-0 flex flex-col gap-3 p-1">
-        <div class="bg-white  shadow-md p-4 flex justify-between items-center">
-          <div class="flex flex-col gap-1">
-            <div class="text-[#0d1b2a] text-xl font-semibold font-['Inter']">Welcome!</div>
-            <div class="text-[#415a77] text-base font-medium font-['Inter'] leading-normal">Here you can add or remove the bus booking system</div>
+  <div class="flex-1 flex flex-col overflow-hidden w-full">
+
+    <div class="bg-[#F0BB78] shadow-md z-20 relative">
+      
+      <div class="px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <!-- Left Section -->
+        <div class="flex items-center space-x-4 sm:space-x-6">
+          <!-- Menu Button (Always Visible) -->
+          <button class="p-2 rounded-lg hover:bg-[#FFF0DC] text-black hover:text-[#1B355E] transition-colors duration-200">
+            <span class="material-icons">menu</span>
+          </button>
+          <!-- Search Bar -->
+          <div class="relative hidden sm:block">
+            <span class="absolute left-3 top-2 material-icons text-gray-400">search</span>
+            <input
+            type="text"
+            placeholder="Search..."
+            class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFF0DC] bg-white text-[#1B355E]"
+            />
           </div>
-          <div class="flex items-center gap-4">
-            <div class="relative w-10 h-10">
-              <div class="w-10 h-10 absolute left-0 top-0 rounded-full border border-slate-200"></div>
-              <div class="w-5 h-[19.2px] absolute left-[7px] top-[5.5px] flex flex-col justify-start items-start">
-                <div class="w-[10.49px] h-[10.97px] bg-red-500 rounded-[14px] border border-white"></div>
-              </div>
-            </div>
-            <div class="flex items-start gap-2">
-              <img src="https://via.placeholder.com/40x40" alt="User Avatar" class="w-10 h-10 rounded-full" />
-              <div class="flex flex-col justify-center items-start gap-1">
-                <div class="flex items-center gap-[9px]">
-                  <div class="text-[#415a77] text-sm font-medium font-['Inter']">Chimi Jr.</div>
-                </div>
-                <div class="flex flex-col justify-start items-center gap-1">
-                  <div class="text-[#778da9] text-xs font-medium font-['Inter']">Jigme Admin</div>
-                </div>
-              </div>
-            </div>
+        </div>
+        
+        <!-- Right Section -->
+        <div class="flex items-center space-x-4 sm:space-x-6">
+          <!-- Notification Button -->
+          <button class="p-2 relative hover:bg-[#FFF0DC] rounded-full text-black hover:text-black transition-colors duration-200">
+            <span class="material-icons">notifications</span>
+            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+          </button>
+          <!-- Email Button -->
+          <button class="p-2 relative hover:bg-[#FFF0DC] rounded-full text-black hover:text-[#1B355E] transition-colors duration-200">
+            <span class="material-icons">email</span>
+            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">5</span>
+          </button>
+          <!-- Profile Section -->
+          <div class="flex items-center space-x-2 sm:space-x-4 p-2 hover:bg-[#F1B434] rounded-lg cursor-pointer text-black hover:text-[#1B355E] transition-colors duration-200">
+            <img src="images/profile.jpg" alt="User Avatar" class="w-8 h-8 rounded-full" />
+            <span class="font-medium hidden sm:inline">Admin</span>
+            <span class="material-icons">arrow_drop_down</span>
           </div>
+        </div>
+      </div>
+      
+      <!-- Search Bar for Small Screens -->
+      <div class="block sm:hidden px-4 py-2">
+        <div class="relative">
+          <span class="absolute left-3 top-2 material-icons text-gray-400">search</span>
+          <input
+          type="text"
+          placeholder="Search..."
+          class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFF0DC] bg-white text-[#1B355E]"
+          />
         </div>
       </div>
     </div>
+
+    <div class="flex justify-center items-start h-110% bg-blue-50">
+      <div class="flex grow shrink basis-0 self-stretch">
+        <!-- Sidebar -->
+        <div class="w-[250px] bg-[#F0BB78] md:w-[250px] sm:w-full">
+          <div class="p-6">
+            <div class="flex items-center gap-2">
+              <img src="bus-logo.png" alt="Bus Booking Logo" class="w-10 h-10" />
+              <div class="text-black text-sm font-bold font-['Inika'] uppercase leading-[18px] tracking-wide">
+                Bus Booking System
+              </div>
+            </div>
+          </div>
+        
+          <!-- Navigation Menu -->
+          <nav class="border-t border-gray-200 px-6 py-4">
+            <div class="opacity-50 text-black text-sm font-normal font-['Poppins'] tracking-wide mb-2">
+              MAIN
+            </div>
+        
+            <!-- Dashboard Link -->
+            <a 
+              routerLink="/dashboard/dashboard-content" 
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-yellow-400">
+              <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-dash-fill" viewBox="0 0 16 16">
+                  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
+                  <path d="m8 3.293 4.712 4.712A4.5 4.5 0 0 0 8.758 15H3.5A1.5 1.5 0 0 1 2 13.5V9.293z"/>
+                  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M11 12h3a.5.5 0 0 1 0 1h-3a.5.5 0 1 1 0-1"/>
+                </svg>
+                Dashboard
+              </div>
+            </a>
+        
+            <!-- Add Bus Link -->
+            <a 
+              routerLink="/dashboard/addbus" 
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-yellow-400">
+              <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-person-add" viewBox="0 0 16 16">
+                  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                  <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                </svg>
+                Add Bus
+              </div>
+            </a>
+        
+            <!-- Additional Links -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-orange-400">
+              <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-people" viewBox="0 0 16 16">
+                  <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                </svg>
+                User Details
+              </div>
+            </a>
+        
+            <!-- Tickets Link -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-orange-400">
+              <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-ticket-detailed-fill" viewBox="0 0 16 16">
+                  <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6zm4 1a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5m0 5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5M4 8a1 1 0 0 0 1 1h6a1 1 0 1 0 0-2H5a1 1 0 0 0-1 1"/>
+                </svg>
+                Tickets
+              </div>
+            </a>
+        
+            <!-- Setting Link -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-orange-400">
+              <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
+                </svg>
+                Setting
+              </div>
+            </a>
+          </nav>
+        </div>  
+
+        
+        <div>
+          <router-outlet></router-outlet>
+        </div>
   </div>
+
+
+
+
+
+      
