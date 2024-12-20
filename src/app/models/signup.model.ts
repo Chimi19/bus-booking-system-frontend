@@ -5,3 +5,13 @@ export interface SignupModel {
     password: string;
     confirmPassword?: string;
   }
+
+  export interface LoginResponseModel {
+    accessToken: string;
+    refreshToken?: string;
+    user: {
+      id: string;
+      email: string;
+      name: string;
+    };
+  }
