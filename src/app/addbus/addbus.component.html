@@ -1,211 +1,191 @@
 <div class="flex-grow flex items-center justify-center w-full pt-[6mm] my-0">
-    <div class="main-panel w-full max-w-3xl flex flex-col p-4 md:p-6" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0px; max-width: 100%; width: 100%; margin-left: 150px; background-color: #FFF0DC;">
-      <div class="content-wrapper w-full" style="width: 100%; padding: 20px; border-radius: 10px;">
-        <h1 style="font-size: 1.5rem; font-weight: 600; text-align: center; margin-bottom: 1.5rem;">Add Bus</h1>
-  
-        <!-- Bus Details -->
-        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
-          <label for="bus_details" class="block text-gray-700 mb-2">Bus Details</label>
-          <div style="display: flex; gap: 1rem; align-items: center;">
-            <!-- Bus Number Input -->
-            <input
-              id="bus_no"
-              class="text_color border p-3 rounded-lg"
-              type="text"
-              name="bus_no"
-              placeholder="BP-0-0000"
-              required
-              style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
-            />
-  
-            <!-- Number of Seats Input -->
-            <input
-              id="number_of_seats"
-              class="text_color border p-3 rounded-lg"
-              type="number"
-              name="number_of_seats"
-              placeholder="Enter number of seats"
-              min="1"
-              required
-              style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
-            />
-          </div>
-        </div>
-  
-        <!-- Bus Brand/Company Name -->
-        <div class="mb-4" style="margin-bottom: 0.75rem;">
-            <div 
-              class="flex items-center space-x-4"
-              style="display: flex; gap: 1rem; align-items: center;"
-            >
-              <!-- Bus Type Dropdown -->
-              <div style="flex: 1;">
-                <label for="bus_type" class="block text-gray-700 mb-2">Bus Type</label>
-                <select
-                  id="bus_type"
-                  name="bus_type"
-                  class="text_color border p-3 rounded-lg"
-                  required
-                  style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
-                >
-                  <option value="" disabled selected>Select bus type</option>
-                  <option value="sleeper">Sleeper</option>
-                  <option value="semi-sleeper">Semi-Sleeper</option>
-                  <option value="seater">Seater</option>
-                  <option value="luxury">Luxury</option>
-                  <!-- Add more bus types as needed -->
-                </select>
-              </div>
-          
-              <!-- Company Name Dropdown -->
-              <div style="flex: 1;">
-                <label for="company_name" class="block text-gray-700 mb-2">Bus Holder</label>
-                <select
-                  id="company_name"
-                  name="company_name"
-                  class="text_color border p-3 rounded-lg"
-                  required
-                  style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
-                >
-                  <option value="" disabled selected>Bus Holder </option>
-                  <option value="company1">Company 1</option>
-                  <option value="company2">Company 2</option>
-                  <option value="company3">Company 3</option>
-                  <!-- Add more company options as needed -->
-                </select>
-              </div>
-            </div>
-          </div>
-          
-          
-  
-        <!-- Location Section -->
-        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
-          <label for="location" class="block text-gray-700 mb-2">Location</label>
-          <div style="display: flex; gap: 1rem; align-items: center;">
-            <!-- From Location Dropdown -->
-            <select
-              id="from_location"
-              class="text_color border p-3 rounded-lg"
-              name="from_location"
-              required
-              style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
-            >
-              <option value="" disabled selected>From</option>
-              <option value="">GMC</option>
-              <option value="">Thimphu</option>
-              <option value="">Paro</option>
-              <option value="">Chukha</option>
-              <option value="">Wangdue</option>
-              <option value="">Punakha</option>
-              <option value="">Trongsa</option>
-              <option value="">Bumthang</option>
-              <option value="">Haa</option>
-              <option value="">Dagana</option>
-              <option value="">Tsirang</option>
-              <option value="">Mongar</option>
-              <option value="">Samtse</option>
-              <option value="">Tashigang</option>
-              <option value="">Tashi Yangtse</option>
-              <option value="">Samdrup Jongkhar</option>
-              <option value="">Gasa</option>
-              <option value="">Lhuentshe</option>
-              <option value="">Zhemgang</option>
-              <option value="">Pemagatshel</option>
-            </select>
-  
-            <!-- To Location Dropdown -->
-            <select
-              id="to_location"
-              class="text_color border p-3 rounded-lg"
-              name="to_location"
-              required
-              style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
-            >
-              <option value="" disabled selected>To</option>
-              <option value="">GMC</option>
-              <option value="">Thimphu</option>
-              <option value="">Paro</option>
-              <option value="">Chukha</option>
-              <option value="">Wangdue</option>
-              <option value="">Punakha</option>
-              <option value="">Trongsa</option>
-              <option value="">Bumthang</option>
-              <option value="">Haa</option>
-              <option value="">Dagana</option>
-              <option value="">Tsirang</option>
-              <option value="">Mongar</option>
-              <option value="">Samtse</option>
-              <option value="">Tashigang</option>
-              <option value="">Tashi Yangtse</option>
-              <option value="">Samdrup Jongkhar</option>
-              <option value="">Gasa</option>
-              <option value="">Lhuentshe</option>
-              <option value="">Zhemgang</option>
-              <option value="">Pemagatshel</option>
-            </select>
-          </div>
-        </div>
-  
-        <!-- Date and Time Scheduled -->
-        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
-          <label for="schedule" class="block text-gray-700">Date and Time Scheduled</label>
-          <div style="display: flex; gap: 0.5rem; align-items: center;">
-            <!-- Date Input -->
-            <input
-              id="date"
-              class="text_color border p-3 rounded-lg"
-              type="date"
-              name="date"
-              required
-              style="border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; width: 50%; box-sizing: border-box;"
-            />
-  
-            <!-- Time Input -->
-            <input
-              id="time"
-              class="text_color border p-3 rounded-lg"
-              type="time"
-              name="time"
-              required
-              style="border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; width: 30%; box-sizing: border-box;"
-            />
-  
-            <!-- AM/PM Dropdown -->
-            <select
-              id="ampm"
-              class="text_color border p-3 rounded-lg"
-              name="ampm"
-              required
-              style="border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; width: 20%; box-sizing: border-box;"
-            >
-              <option value="AM">AM</option>
-              <option value="PM">PM</option>
-            </select>
-          </div>
-        </div>
-  
-        <!-- Bus Image Upload -->
-        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
-          <label for="image" class="block text-gray-700">Bus Image Here:</label>
+  <div class="main-panel w-full max-w-2xl flex flex-col p-4 md:p-6" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0px; max-width: 80%; width: 80%; margin-left: auto; margin-right: auto; background-color: #F0BB78;">
+    <div class="content-wrapper w-full" style="width: 100%; padding: 20px; border-radius: 10px;">
+      <h1 style="font-size: 1.5rem; font-weight: 600; text-align: center; margin-bottom: 1.5rem;">Add Bus</h1>
+
+      <!-- Bus Details -->
+      <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+        <label for="bus_details" class="block text-gray-700 mb-2">Bus Details</label>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <!-- Bus Number Input -->
           <input
-            id="image"
-            class="border w-full p-3 rounded-lg"
-            type="file"
+            id="bus_no"
+            class="text_color border p-3 rounded-lg"
+            type="text"
+            name="bus_no"
+            placeholder="BP-0-0000"
             required
-            style="border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; width: 100%; box-sizing: border-box;"
+            style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
+          />
+
+          <!-- Number of Seats Input -->
+          <input
+            id="number_of_seats"
+            class="text_color border p-3 rounded-lg"
+            type="number"
+            name="number_of_seats"
+            placeholder="Enter number of seats"
+            min="1"
+            required
+            style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
           />
         </div>
-  
-        <!-- Add Bus Button -->
-        <div class="div_design">
-          <button
-            type="submit"
-            style="padding: 1rem; background-color: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; width: 100%; font-size: 1rem; font-weight: 600;"
+      </div>
+
+      <!-- Bus Brand/Company Name -->
+      <div class="mb-4" style="margin-bottom: 0.75rem;">
+          <div 
+            class="flex items-center space-x-4"
+            style="display: flex; gap: 1rem; align-items: center;"
           >
-            Add Bus
-          </button>
+            <!-- Bus Type Dropdown -->
+            <div style="flex: 1;">
+              <label for="bus_type" class="block text-gray-700 mb-2">Bus Type</label>
+              <select
+                id="bus_type"
+                name="bus_type"
+                class="text_color border p-3 rounded-lg"
+                required
+                style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
+              >
+                <option value="" disabled selected>Select bus type</option>
+                <option value="sleeper">Sleeper</option>
+                <option value="semi-sleeper">Semi-Sleeper</option>
+                <option value="seater">Seater</option>
+                <option value="luxury">Luxury</option>
+                <!-- Add more bus types as needed -->
+              </select>
+            </div>
+        
+            <!-- Company Name Dropdown -->
+            <div style="flex: 1;">
+              <label for="company_name" class="block text-gray-700 mb-2">Bus Holder</label>
+              <select
+                id="company_name"
+                name="company_name"
+                class="text_color border p-3 rounded-lg"
+                required
+                style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
+              >
+                <option value="" disabled selected>Bus Holder </option>
+                <option value="company1">Company 1</option>
+                <option value="company2">Company 2</option>
+                <option value="company3">Company 3</option>
+                <!-- Add more company options as needed -->
+              </select>
+            </div>
+          </div>
+        </div>
+        
+      <!-- Location Section -->
+      <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+        <label for="location" class="block text-gray-700 mb-2">Location</label>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <!-- From Location Dropdown -->
+          <select
+            id="from_location"
+            class="text_color border p-3 rounded-lg"
+            name="from_location"
+            required
+            style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
+          >
+            <option value="" disabled selected>From</option>
+            <option value="">GMC</option>
+            <option value="">Thimphu</option>
+            <option value="">Paro</option>
+            <option value="">Chukha</option>
+            <option value="">Wangdue</option>
+            <option value="">Punakha</option>
+            <option value="">Trongsa</option>
+            <option value="">Bumthang</option>
+            <option value="">Haa</option>
+          </select>
+
+          <!-- To Location Dropdown -->
+          <select
+            id="to_location"
+            class="text_color border p-3 rounded-lg"
+            name="to_location"
+            required
+            style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
+          >
+            <option value="" disabled selected>To</option>
+            <option value="">GMC</option>
+            <option value="">Thimphu</option>
+            <option value="">Paro</option>
+            <option value="">Chukha</option>
+            <option value="">Wangdue</option>
+            <option value="">Punakha</option>
+            <option value="">Trongsa</option>
+            <option value="">Bumthang</option>
+            <option value="">Haa</option>
+            <option value="">Dagana</option>
+            <option value="">Tsirang</option>
+          </select>
         </div>
       </div>
-    </div>
+
+      <!-- Date and Time Scheduled -->
+      <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+        <label for="schedule" class="block text-gray-700">Date and Time Scheduled</label>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <!-- Date Input -->
+          <input
+            id="date"
+            class="text_color border p-3 rounded-lg"
+            type="date"
+            name="date"
+            required
+            style="border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; width: 50%; box-sizing: border-box;"
+          />
+
+          <!-- Time Input -->
+          <input
+            id="time"
+            class="text_color border p-3 rounded-lg"
+            type="time"
+            name="time"
+            required
+            style="border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; width: 30%; box-sizing: border-box;"
+          />
+
+          <!-- AM/PM Dropdown -->
+          <select
+            id="ampm"
+            class="text_color border p-3 rounded-lg"
+            name="ampm"
+            required
+            style="border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; width: 20%; box-sizing: border-box;"
+          >
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Bus Image Upload -->
+      <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+        <label for="image" class="block text-gray-700">Bus Image Here:</label>
+        <input
+          id="image"
+          class="border w-full p-3 rounded-lg"
+          type="file"
+          required
+          style="border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; width: 100%; box-sizing: border-box;"
+        />
+      </div>
+
+      <!-- Add Bus Button -->
+      <!-- Add Bus Button -->
+<div class="div_design" style="text-align: center;">
+  <button
+    type="submit"
+    style="padding: 1rem; background-color: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; width: 50%; font-size: 1rem; font-weight: 600; display: block; margin: 0 auto;"
+  >
+    Add Bus
+  </button>
+</div>
+
+    </div>
+  </div>
 </div>
