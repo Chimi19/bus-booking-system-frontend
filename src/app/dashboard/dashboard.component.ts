@@ -5,8 +5,8 @@ import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../services/auth.service';
-import { ProfileDropdownComponent } from "../profile-dropdown/profile-dropdown.component";
 import { CommonModule } from '@angular/common';
+import { ProfileDropdownComponent } from '../profile-dropdown/profile-dropdown.component';
 
 @Component({
   selector: 'app-dashboard',

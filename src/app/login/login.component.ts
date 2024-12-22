@@ -3,8 +3,8 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Router, RouterLink, RouterModule } from "@angular/router";
 import { ToastrModule, ToastrService } from "ngx-toastr";
-import { LoginService } from "../services/login.service";
 import { LoginModel } from "../models/login.model";
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,7 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService,
+    private authservice: AuthService,
     private router: Router,
     private toastr: ToastrService
   ) {
@@ -49,8 +49,8 @@ export class LoginComponent {
       password: this.loginForm.value.password
     };
 
-    this.loginService.login(loginData).subscribe({
-      next: (response) => {
+    this.authservice.login(loginData).subscribe({
+      next: () => {
         this.toastr.success('Login successful', 'Success');
         this.router.navigate(['/dashboard']);
       },
