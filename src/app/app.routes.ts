@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddbusComponent } from './addbus/addbus.component';
 import { DashboardContentComponent } from './admin/dashboard-content/dashboard-content.component';
+import { UpdatebusComponent } from './admin/updatebus/updatebus.component';
 
 export const routes: Routes = [
   { path: '', component: SignupComponent }, // Default route
@@ -25,6 +26,10 @@ export const routes: Routes = [
     {
       path: 'addbus',
       component: AddbusComponent
+    },
+    {
+      path:'updatebus/:id',
+      component: UpdatebusComponent
     }
   ]
 },
