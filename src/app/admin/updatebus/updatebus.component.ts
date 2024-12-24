@@ -105,38 +105,5 @@ export class UpdatebusComponent implements OnInit{
       this.errorMessage = 'Please fill in all required fields.';
     }
   }
-  onDelete(): void {
-    if (this.busId) {
-        const confirmDelete = confirm('Are you sure you want to delete this bus?');
-        if (confirmDelete) {
-            this.loading = true;
-            this.busService.deleteBusbyId(this.busId).subscribe(
-                () => {
-                    console.log('Bus deleted successfully!');
-                    this.toastr.success('Bus deleted successfully!', 'Success');
-                    this.errorMessage = null;
-
-                    this.router.navigateByUrl('/dashboard').then(success => {
-                        if (success) {
-                            console.log('Navigation to dashboard successful');
-                        } else {
-                            console.error('Navigation to dashboard failed');
-                        }
-                    });
-                },
-                (error) => {
-                    console.error('Error deleting bus:', error); 
-                    this.errorMessage = 'Error deleting bus: ' + error.message;
-                    this.successMessage = null;
-                },
-                () => {
-                    this.loading = false;
-                    console.log('Loading state set to false'); 
-                }
-            );
-        }
-    } else {
-        this.errorMessage = 'Bus ID is required for deletion.';
-    }
-}
+  
 }

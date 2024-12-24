@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { Bus } from 'app/models/bus.model';
-import { AuthService } from 'app/services/auth.service';
 import { BusService } from 'app/services/bus.service';
 import { ToastrService } from 'ngx-toastr';
 

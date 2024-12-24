@@ -1,6 +1,8 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
+import { ConfirmationDialogComponent } from 'app/confirmation-dialog/confirmation-dialog.component';
 import { Bus } from 'app/models/bus.model';
 import { BusService } from 'app/services/bus.service';
 import { ToastrService } from 'ngx-toastr';
@@ -15,45 +17,48 @@ import { ToastrService } from 'ngx-toastr';
 export class DashboardContentComponent implements OnInit {
 
   buses: Bus[] = []; 
-  loading: boolean = true; 
 
-  constructor(private busService: BusService, private toastr: ToastrService,     private router: Router,
+  constructor(private busService: BusService, private toastr: ToastrService, private dialog: Dialog,
+      private elementRef: ElementRef,    private router: Router,
   ) {}
 
   ngOnInit(): void {
-    this.fetchBuses(); 
+    this.fetchBuses();
   }
+  
 
   fetchBuses(): void {
     this.busService.getBus().subscribe(
       (data: Bus[]) => {
         this.buses = data; 
-        this.loading = false; 
       },
       (error) => {
         console.error('Error fetching buses:', error);
-        this.loading = false;
       }
     );
   }
   onDelete(busId: number): void { 
-    const confirmDelete = confirm('Are you sure you want to delete this bus?');
-    if (confirmDelete) {
-        this.loading = true;
-        this.busService.deleteBusbyId(busId.toString()).subscribe( 
-            () => {
-                this.toastr.success('Bus deleted successfully!', 'Success');
-                this.buses = this.buses.filter(bus => bus.id !== busId);
-                this.loading = false; // Set loading to false
-                this.router.navigateByUrl('/dashboard')
+ const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        title: 'Confirm Delete',
+        message: 'Are you sure you want delete the bus?'
+      }
+    });
+    dialogRef.closed.subscribe(result => {
+      if (result) {
+        this.busService.deleteBusbyId(busId.toString()).subscribe({
+          next: (response) => {
+            this.toastr.success('Bus deleted successfully!', 'Success');
+            this.fetchBuses();
+          },
+          error: (data) => {
+            this.toastr.error(data.error?.message || 'Delete failed', 'Error');
+          }
+        });
+      }
+    });
 
 
-              },
-            (error) => {
-               
-            }
-        );
-    }
 }
   
 }

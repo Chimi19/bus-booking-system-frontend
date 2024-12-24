@@ -28,7 +28,7 @@ export class BusService {
     return this.http.get<Bus>(`${this.baseUrl}bus/${busId}`); 
   }
   updateBus(busId: string, busData: Bus):Observable<Bus>{
-    return this.http.put<Bus>(`${this.baseUrl}bus/put/${busId}`, busData);
+    return this.http.patch<Bus>(`${this.baseUrl}bus/put/${busId}`, busData);
   }
   deleteBusbyId(busId: string): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}bus/${busId}`); 
