@@ -31,7 +31,7 @@
                 <!-- Departure Time -->
                 <div class="div_design mb-4">
                     <label for="departure" class="block text-gray-700 mb-2">Departure Time</label>
-                    <input id="departure" formControlName="departure" class="text_color border p-3 rounded-lg" type="time" placeholder="HH:MM:SS" style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+                    <input id="departure" formControlName="departure" class="text_color border p-3 rounded-lg" type="text" placeholder="HH:MM:SS" style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
                 </div>
 
                 <!-- Bus Model and Brand -->
@@ -68,9 +68,7 @@
                 <div class="div_design mb-4">
                     <button type="submit" class="bg-blue-500 text-white p-3 rounded-lg">Update Bus</button>
                 </div>
-                <div class="div_design mb-4">
-                    <button (click)="onDelete()" class="bg-red-500 text-white p-3 rounded-lg">Delete Bus</button>
-                </div>
+             
             </form>
         </div>
     </div>
