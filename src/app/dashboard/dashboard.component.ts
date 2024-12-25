@@ -37,9 +37,8 @@ export class DashboardComponent {
     this.toastr.success('Logout successful', 'Success');
     this.router.navigate(['/login']);
   }
-
-  navigateToProfile(): void {
-    this.router.navigate(['/profile']);
+  redirectToadmindetails() {
+    this.router.navigate(['dashboard/admindetails']);
   }
 
   navigateToSettings(): void {
