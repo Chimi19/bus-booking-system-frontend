@@ -1,75 +1,96 @@
 <div class="flex-grow flex items-center justify-center w-full pt-[6mm] my-0">
-    <div class="main-panel w-full max-w-2xl flex flex-col p-4 md:p-6" style="background-color: #F0BB78;">
-        <div class="content-wrapper w-full" style="width: 100%; padding: 20px; border-radius: 10px;">
-            <h1 style="font-size: 1.5rem; font-weight: 600; text-align: center; margin-bottom: 1.5rem;">Update Bus</h1>
-
-            <form [formGroup]="busForm" (ngSubmit)="onSubmit()">
-                <!-- Bus Number and Seats Availability -->
-                <div class="div_design mb-4">
-                    <label for="busNo" class="block text-gray-700 mb-2">Bus Details</label>
-                    <div style="display: flex; gap: 1rem; align-items: center;">
-                        <input id="busNo" formControlName="busNo" class="text_color border p-3 rounded-lg" type="text" placeholder="Bus Number" style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
-                        <input id="seatsAvailability" formControlName="seatsAvailability" class="text_color border p-3 rounded-lg" type="number" placeholder="Seats Availability" min="1" style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
-                    </div>
-                </div>
-
-                <!-- Departure and Destination -->
-                <div class="div_design mb-4">
-                    <label for="departureFrom" class="block text-gray-700 mb-2">Location</label>
-                    <div style="display: flex; gap: 1rem; align-items: center;">
-                        <select id="departureFrom" formControlName="departureFrom" class="text_color border p-3 rounded-lg" style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
-                            <option value="">Select Departure Location</option>
-                            <option *ngFor="let destination of destinations" [value]="destination">{{ destination }}</option>
-                        </select>                        
-                        <select id="destination" formControlName="destination" class="text_color border p-3 rounded-lg" style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
-                            <option value="">Select Destination</option>
-                            <option *ngFor="let destination of destinations" [value]="destination">{{ destination }}</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Departure Time -->
-                <div class="div_design mb-4">
-                    <label for="departure" class="block text-gray-700 mb-2">Departure Time</label>
-                    <input id="departure" formControlName="departure" class="text_color border p-3 rounded-lg" type="text" placeholder="HH:MM:SS" style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
-                </div>
-
-                <!-- Bus Model and Brand -->
-                <div class="div_design mb-4">
-                    <label for="model" class="block text-gray-700 mb-2">Bus Model and Brand</label>
-                    <div style="display: flex; gap: 1rem; align-items: center;">
-                        <select id="model" formControlName="model" class="text_color border p-3 rounded-lg" style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
-                            <option value="">Select Model</option>
-                            <option *ngFor="let model of models" [value]="model">{{ model }}</option>
-                        </select>
-                        <select id="brand" formControlName="brand" class="text_color border p-3 rounded-lg" style="flex: 1; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
-                            <option value="">Select Brand</option>
-                            <option *ngFor="let brand of brands" [value]="brand">{{ brand }}</option>
-                        </select>
-                    </div>
-                
-                </div>
-
-                <!-- Amenities -->
-                <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
-                    <label for="amenities" class="block text-gray-700 mb-2">Amenities</label>
-                    <select id="amenities" formControlName="amenities" class="text_color border p-3 rounded-lg" style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
-                      <option value="">Select Amenities</option>
-                      <option *ngFor="let amenity of amenitiesOptions" [value]="amenity">{{ amenity }}</option>
-                    </select>
-                  </div>
-                <!-- Price -->
-                <div class="div_design mb-4">
-                    <label for="price" class="block text-gray-700 mb-2">Price</label>
-                    <input id="price" formControlName="price" class="text_color border p-3 rounded-lg" type="number" placeholder="Price" min="0" style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
-                </div>
-
-                <!-- Submit Button -->
-                <div class="div_design mb-4">
-                    <button type="submit" class="bg-blue-500 text-white p-3 rounded-lg">Update Bus</button>
-                </div>
-             
-            </form>
-        </div>
+    <div class="main-panel w-full max-w-2xl flex flex-col p-4 md:p-6" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0px; max-width: 80%; width: 80%; margin-left: auto; margin-right: auto; background-color: #F0BB78;">
+      <div class="content-wrapper w-full" style="width: 100%; padding: 20px; border-radius: 10px;">
+        <h1 style="font-size: 1.5rem; font-weight: 600; text-align: center; margin-bottom: 1.5rem;">Add Bus</h1>
+  
+        <form [formGroup]="busForm" (ngSubmit)="onSubmit()">
+          <!-- Bus Number and Seats Availability -->
+          <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+            <label for="busNo" class="block text-gray-700 mb-2">Bus Details</label>
+            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+              <input id="busNo" formControlName="busNo" class="text_color border p-3 rounded-lg" type="text" placeholder="Bus Number" style="flex: 1; min-width: 220px; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+              <input id="seatsAvailability" formControlName="seatsAvailability" class="text_color border p-3 rounded-lg" type="number" placeholder="Seats Availability" min="1" style="flex: 1; min-width: 220px; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+            </div>
+          </div>
+  
+          <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+            
+            <label for="departureFrom" class="block text-gray-700 mb-2">Location</label>
+            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+              
+              <!-- Departure From Dropdown -->
+               
+              <select id="departureFrom" formControlName="departureFrom" class="text_color border p-3 rounded-lg" style="flex: 1; min-width: 220px; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
+                <option value="">Select Departure Location</option>
+          
+                <!-- Loop through destinations and disable already selected destination -->
+                <option *ngFor="let destination of destinations" 
+                        [value]="destination" 
+                        [attr.disabled]="destination === busForm.get('destination')?.value ? true : null">
+                  {{ destination }}
+                </option>
+              </select>  
+          
+              <!-- Destination Dropdown -->
+               
+              <select id="destination" formControlName="destination" class="text_color border p-3 rounded-lg" style="flex: 1; min-width: 220px; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
+                <option value="">Select Destination</option>
+          
+                <!-- Filtered destinations: exclude selected departureFrom -->
+                <option *ngFor="let destination of destinations" 
+                        [value]="destination"
+                        [attr.disabled]="destination === busForm.get('departureFrom')?.value ? true : null">
+                  {{ destination }}
+                </option>
+              </select>
+            </div>
+          </div>
+          
+          
+  
+          <!-- Departure Time -->
+          <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+            <label for="departure" class="block text-gray-700 mb-2">Departure Time</label>
+            <input id="departure" formControlName="departure" class="text_color border p-3 rounded-lg" type="text" placeholder="HH:MM:SS" style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+          </div>
+  
+          <!-- Bus Model and Brand -->
+          <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+            <label for="model" class="block text-gray-700 mb-2">Bus Model and Brand</label>
+            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+              <select id="model" formControlName="model" class="text_color border p-3 rounded-lg" style="flex: 1; min-width: 220px; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
+                <option value="">Select Model</option>
+                <option *ngFor="let model of models" [value]="model">{{ model }}</option>
+              </select>
+              <select id="brand" formControlName="brand" class="text_color border p-3 rounded-lg" style="flex: 1; min-width: 220px; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
+                <option value="">Select Brand</option>
+                <option *ngFor="let brand of brands" [value]="brand">{{ brand }}</option>
+              </select>
+            </div>
+          </div>
+  
+          <!-- Amenities -->
+          <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+            <label for="amenities" class="block text-gray-700 mb-2">Amenities</label>
+            <select id="amenities" formControlName="amenities" class="text_color border p-3 rounded-lg" style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
+              <option value="">Select Amenities</option>
+              <option *ngFor="let amenity of amenitiesOptions" [value]="amenity">{{ amenity }}</option>
+            </select>
+          </div>
+  
+          <!-- Price -->
+          <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+            <label for="price" class="block text-gray-700 mb-2">Price per Seat</label>
+            <input id="price" formControlName="price" class="text_color border p-3 rounded-lg" type="text" placeholder="In Nu." style="width: 100%; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+          </div>
+  
+          <!-- Submit Button -->
+          <div class="div_design" style="text-align: center;">
+            <button type="submit" [disabled]="busForm.invalid" style="padding: 1rem; background-color: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; width: 50%; font-size: 1rem; font-weight: 600; display: block; margin: 0 auto;">
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
+  </div>

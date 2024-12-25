@@ -24,7 +24,7 @@ interface RestResponse {
 @Component({
   selector: 'app-admindetails',
   templateUrl: './admindetails.component.html',
-  imports: [EditadminComponent],
+  imports: [],
   styleUrls: ['./admindetails.component.css']
 })
 export class AdmindetailsComponent implements OnInit{
