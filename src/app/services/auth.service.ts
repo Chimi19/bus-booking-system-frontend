@@ -122,4 +122,10 @@ return token;
       })
     );
   }
+  forgotPassword(email: string): Observable<any> {
+    return this.apiService.post('auth/forgot-password', { email });
+  }
+  resetPassword(token: string, password: string): Observable<any> {
+    return this.apiService.post('auth/reset-password', { token, password });
+  }
 }

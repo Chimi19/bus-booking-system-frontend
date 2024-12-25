@@ -18,7 +18,7 @@
       <app-profile-dropdown
           [user]="currentUser$ | async"
           (logout)="handleLogout()"
-          (profileNavigate)="navigateToProfile()"
+          (profileNavigate)="redirectToadmindetails()"
           (settingsNavigate)="navigateToSettings()"
         ></app-profile-dropdown>
 
@@ -103,14 +103,7 @@
           </a>
 
           <!-- Settings Link -->
-          <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-orange-400">
-            <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-gear" viewBox="0 0 16 16">
-                <path d="M8 0a1 1 0 0 1 1 1v1h6a1 1 0 0 1 1 1v2h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-1v2a1 1 0 0 1-1 1h-6v1a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-1H1a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1V6a1 1 0 0 1 1-1h6V1a1 1 0 0 1 1-1h1z"/>
-              </svg>
-              Settings
-            </div>
-          </a>
+       
         </nav>
       </div>
 
