@@ -52,7 +52,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
                // If refresh fails, logout and redirect to login
                console.log('Token refresh failed:', refreshError);
               authService.logout();
-              router.navigate(['login']);
+              router.navigate(['/login']);
               return throwError(() => refreshError);
             })
           );

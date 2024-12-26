@@ -4,6 +4,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { ConfirmationDialogComponent } from 'app/confirmation-dialog/confirmation-dialog.component';
 import { Bus } from 'app/models/bus.model';
+import { AuthService } from 'app/services/auth.service';
 import { BusService } from 'app/services/bus.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -17,16 +18,23 @@ import { ToastrService } from 'ngx-toastr';
 export class DashboardContentComponent implements OnInit {
 
   buses: Bus[] = []; 
+  isAdmin: boolean = false
 
-  constructor(private busService: BusService, private toastr: ToastrService, private dialog: Dialog,
+  constructor(private busService: BusService, private authService: AuthService, private toastr: ToastrService, private dialog: Dialog,
       private elementRef: ElementRef,    private router: Router,
-  ) {}
+  ) {
+   
+  }
 
   ngOnInit(): void {
-    this.fetchBuses();
+    this.authService.getCurrentUser ().subscribe(user => {
+      console.log('Current User:', user); // Log the entire user object
+      this.isAdmin = user?.roles?.toUpperCase() === 'ADMIN'; // Check for Admin role
+      console.log('Is Admin:', this.isAdmin);
+      this.fetchBuses(); // Fetch buses after setting isAdmin
+    });
   }
   
-
   fetchBuses(): void {
     this.busService.getBus().subscribe(
       (data: Bus[]) => {
@@ -39,6 +47,7 @@ export class DashboardContentComponent implements OnInit {
     );
     
   }
+  
   onDelete(busId: number): void { 
  const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {

@@ -1,9 +1,7 @@
 <div class="flex-1 flex flex-col overflow-hidden min-h-screen w-full">
-  <div class="shadow-lg z-20 relative"> <!-- Added shadow-lg here -->
-    <div class="px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4 bg-[#F0BB78]"> <!-- bg-[#F0BB78] -->
-      <!-- Left Section -->
+  <div class="shadow-lg z-20 relative">
+    <div class="px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4 bg-[#F0BB78]">
       <div class="flex items-center space-x-4 sm:space-x-6">
-       
         <!-- Search Bar -->
         <div class="relative hidden sm:block">
           <span class="absolute left-3 top-2 material-icons text-gray-400">search</span>
@@ -16,99 +14,101 @@
       </div>
 
       <app-profile-dropdown
-          [user]="currentUser$ | async"
+          [user]="currentUser$ | async" 
           (logout)="handleLogout()"
           (profileNavigate)="redirectToadmindetails()"
           (settingsNavigate)="navigateToSettings()"
         ></app-profile-dropdown>
 
-    <!-- Search Bar for Small Screens -->
-    <div class="block sm:hidden px-4 py-2">
-      <div class="relative">
-        <span class="absolute left-3 top-2 material-icons text-gray-400">search</span>
-        <input
-          type="text"
-          placeholder="Search..."
-          class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFF0DC] bg-white text-[#1B355E]"
-        />
+      <!-- Search Bar for Small Screens -->
+      <div class="block sm:hidden px-4 py-2">
+        <div class="relative">
+          <span class="absolute left-3 top-2 material-icons text-gray-400">search</span>
+          <input
+            type="text"
+            placeholder="Search..."
+            class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFF0DC] bg-white text-[#1B355E]"
+          />
+        </div>
       </div>
     </div>
-  </div>
-  
-  <!-- Remaining Layout -->
-  <div class="flex justify-center items-start h-full bg-blue-50">
-    <div class="flex grow shrink basis-0 self-stretch w-full">
-      <!-- Sidebar -->
-      <div class="w-[250px] bg-[#F0BB78] min-h-screen flex-shrink-0">
-        <div class="p-6">
-          <div class="flex items-center gap-2">
-            <img src="bus-logo.png" alt="Bus Booking Logo" class="w-10 h-10" />
-            <div class="text-black text-sm font-bold font-['Inika'] uppercase leading-[18px] tracking-wide">
-              Bus Booking System
+    
+    <!-- Remaining Layout -->
+    <div class="flex justify-center items-start h-full bg-blue-50">
+      <div class="flex grow shrink basis-0 self-stretch w-full">
+        <!-- Sidebar -->
+        <div class="w-[250px] bg-[#F0BB78] min-h-screen flex-shrink-0">
+          <div class="p-6">
+            <div class="flex items-center gap-2">
+              <img src="bus-logo.png" alt="Bus Booking Logo" class="w-10 h-10" />
+              <div class="text-black text-sm font-bold font-['Inika'] uppercase leading-[18px] tracking-wide">
+                Bus Booking System
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Navigation Menu -->
-        <nav class="border-t border-gray-200 px-6 py-4 bg-[#F0BB78]">
-          <div class="opacity-50 text-black text-sm font-normal font-['Poppins'] tracking-wide mb-2">
-            MAIN
-          </div>
-
-          <!-- Dashboard Link -->
-          <a 
-            routerLink="/dashboard/dashboard-content" 
-            class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-yellow-400">
-            <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-dash-fill" viewBox="0 0 16 16">
-                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
-                <path d="m8 3.293 4.712 4.712A4.5 4.5 0 0 0 8.758 15H3.5A1.5 1.5 0 0 1 2 13.5V9.293z"/>
-                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M11 12h3a.5.5 0 0 1 0 1h-3a.5.5 0 1 1 0-1"/>
-              </svg>
-              Dashboard
+          <!-- Navigation Menu -->
+          <nav class="border-t border-gray-200 px-6 py-4 bg-[#F0BB78]">
+            <div class="opacity-50 text-black text-sm font-normal font-['Poppins'] tracking-wide mb-2">
+              MAIN
             </div>
-          </a>
 
-          <!-- Add Bus Link -->
-          <a 
+            <!-- Dashboard Link -->
+            <a 
+              routerLink="/dashboard/dashboard-content" 
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-yellow-400">
+              <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-dash-fill" viewBox="0 0 16 16">
+                  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
+                  <path d="m8 3.293 4.712 4.712A4.5 4.5 0 0 0 8.758 15H3.5A1.5 1.5 0 0 1 2 13.5V9.293z"/>
+                  <path d="M12.5 16a3.5 3.5 0 1 0 0-7  3.5 3.5 0 0 0 0 7z"/>
+                </svg>
+                Dashboard
+              </div>
+            </a>
+            <a 
+            *ngIf="isAdmin" 
             routerLink="/dashboard/addbus" 
             class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-yellow-400">
             <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-person-add" viewBox="0 0 16 16">
-                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
-                <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
+                <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
               </svg>
               Add Bus
             </div>
           </a>
 
-          <!-- User Details Link -->
-          <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-orange-400">
-            <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.759 1.456.759 1.72l-.022-.006z"/>
-              </svg>
-              User Details
-            </div>
-          </a>
+            <!-- Admin Link (Visible only to Admins) -->
+            <a 
+              *ngIf="isAdmin" 
+              routerLink="/dashboard/admin" 
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-yellow-400">
+              <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16">
+                  <path d="M8 0a2 2 0 0 1 2 2v2.5a4.5 4.5 0 0 1 0 9V14a2 2 0 1 1-4 0v-1a4.5 4.5 0 0 1 0-9V2a2 2 0 0 1 2-2z"/>
+                </svg>
+                Admin Panel
+              </div>
+            </a>
 
-          <!-- Tickets Link -->
-          <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-orange-400">
-            <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-ticket" viewBox="0 0 16 16">
-                <path d="M0 4.5C0 4.224 0.224 4 0.5 4H4V3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1h3.5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H13V13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-1H.5a.5.5 0 0 1-.5-.5v-7z"/>
-              </svg>
-              Tickets
-            </div>
-          </a>
+            <!-- Settings Link -->
+            <a 
+              routerLink="/settings" 
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-yellow-400">
+              <div class="text-black text-base font-medium font-['Inter'] tracking-wide flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
+                </svg>
+                Settings
+              </div>
+            </a>
+          </nav>
+        </div>
 
-          <!-- Settings Link -->
-       
-        </nav>
-      </div>
-
-      <div class="flex-grow">
-        <router-outlet></router-outlet>
+        <!-- Main Content Area -->
+        <div class="flex-grow p-6">
+          <router-outlet></router-outlet> <!-- This is where the routed components will be displayed -->
+        </div>
       </div>
     </div>
   </div>

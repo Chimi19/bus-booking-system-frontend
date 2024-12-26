@@ -4,5 +4,5 @@ export interface User {
     address?: string,
     avatar?: string;
     name?:string;
-    role?:string;
+    roles?:string;
   }

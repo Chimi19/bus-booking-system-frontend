@@ -75,31 +75,30 @@ return token;
     );
   }
 
-  
-  getCurrentUser(): Observable<User> {
+  getCurrentUser (): Observable<User> {
     return this.apiService.get<User>('users/self').pipe(
       map((response: any) => {
-        // Create a new User object from the API response
+        // Check if the response structure is correct
+        console.log('API Response:', response); // Log the response for debugging
+  
         const user: User = {
-          id: response?.data?.user.id,
-          // Map other properties from the response
-          email: response?.data?.user.email,
-          name:"Admin"
-          // Add any additional mapping as needed
+          id: response?.data?.user?.id,
+          email: response?.data?.user?.email,
+          name: response?.data?.user?.name || 'Unknown', // Provide a default value if null
+          roles: response?.data?.user?.roles || 'USER' // Provide a default value if undefined
         };
         
-        this.userService.setCurrentUser(user);
+        this.userService.setCurrentUser (user);
         return user;
       }),
       catchError((error) => {
-        if(error.status===403){
+        if (error.status === 403) {
           this.router.navigate(['/login']);
         }
         return throwError(() => error);
       })
     );
   }
-
   // Logout method
   logout(): void {
     this.removeToken();
