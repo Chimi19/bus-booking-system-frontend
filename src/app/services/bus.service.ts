@@ -18,7 +18,6 @@ export class BusService {
     return this.http.post<Bus>(`${this.baseUrl}bus`, bus);
   }
 
-
   getBus(): Observable<Bus[]> {
     return this.http.get<{ status: boolean; data: { bus: Bus[] } }>(`${this.baseUrl}bus`).pipe(
       tap(response => console.log('API Response:', response)), // Log the full response

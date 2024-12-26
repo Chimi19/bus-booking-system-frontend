@@ -36,6 +36,17 @@ export class LoginComponent {
     }, { 
     });
   }
+  
+  ngOnInit(): void {
+    // Check if already authenticated
+    if(this.authservice.getToken()){
+      this.authservice.validateToken().subscribe(isValid => {
+        if (isValid) {
+          this.router.navigate(['/dashboard']);
+        }
+      });
+    }
+  }
 
   onSubmit(): void {
     this.submitted = true;

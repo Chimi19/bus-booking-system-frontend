@@ -9,6 +9,7 @@ import { AdmindetailsComponent } from './admindetails/admindetails.component';
 import { EditadminComponent } from './editadmin/editadmin.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AuthGuard } from '@core/guard/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: SignupComponent }, // Default route
@@ -28,11 +29,11 @@ export const routes: Routes = [
     },
     {
       path: 'addbus',
-      component: AddbusComponent
+      component: AddbusComponent, canActivate: [AuthGuard]
     },
     {
       path:'updatebus/:id',
-      component: UpdatebusComponent
+      component: UpdatebusComponent,canActivate: [AuthGuard]
     },
     { path: 'admindetails', 
       component: AdmindetailsComponent

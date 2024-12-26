@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
@@ -10,23 +10,31 @@ import { ProfileDropdownComponent } from '../profile-dropdown/profile-dropdown.c
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterLink, RouterOutlet, ProfileDropdownComponent,CommonModule],
+  imports: [RouterLink,RouterOutlet ,ProfileDropdownComponent,CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
   standalone: true,
 })
-export class DashboardComponent {
-
-  currentUser$: Observable<User | null>;
+export class DashboardComponent implements OnInit {
+  isAdmin: boolean = false;
+ 
+  currentUser$ !: Observable<User | null>;
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private toastr: ToastrService
   ) {
-    this.currentUser$ = this.authService.getCurrentUser();
   }
 
+  ngOnInit(): void {
+    this.currentUser$ = this.authService.getCurrentUser (); // Get the current user observable
+    this.currentUser$.subscribe(user => {
+      console.log('Current User:', user); // Log the entire user object
+      this.isAdmin = user?.roles?.toUpperCase() === 'ADMIN'; // Check if the user is an Admin
+      console.log('Is Admin:', this.isAdmin);
+    });
+  }
   toggleSidebar(): void {
     // Implement sidebar toggle logic
     console.log('Toggle Sidebar');
