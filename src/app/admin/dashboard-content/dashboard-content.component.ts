@@ -30,12 +30,14 @@ export class DashboardContentComponent implements OnInit {
   fetchBuses(): void {
     this.busService.getBus().subscribe(
       (data: Bus[]) => {
+        console.log('Fetched buses:', data); // This should now log the bus data correctly
         this.buses = data; 
       },
       (error) => {
         console.error('Error fetching buses:', error);
       }
     );
+    
   }
   onDelete(busId: number): void { 
  const dialogRef = this.dialog.open(ConfirmationDialogComponent, {

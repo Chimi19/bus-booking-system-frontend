@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'app/environment';
 import { Bus } from 'app/models/bus.model';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +19,12 @@ export class BusService {
   }
 
 
-  getBus():Observable<Bus[]>{
-    return this.http.get<Bus[]>(`${this.baseUrl}bus`);
+  getBus(): Observable<Bus[]> {
+    return this.http.get<{ status: boolean; data: { bus: Bus[] } }>(`${this.baseUrl}bus`).pipe(
+      tap(response => console.log('API Response:', response)), // Log the full response
+      map(response => response.data.bus) // Access the bus array correctly
+    );
   }
-
   
   getBusbyId(busId: string): Observable<Bus> {
     return this.http.get<Bus>(`${this.baseUrl}bus/${busId}`); 
