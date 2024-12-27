@@ -20,24 +20,67 @@
         <strong>Amenities:</strong> {{ bus.amenities }}<br>
       </p>
 
-      <button *ngIf="isAdmin" (click)="onDelete(bus.id)">Delete</button> 
-
-      <div class="flex justify-between items-center">
-        <a *ngIf="isAdmin" [routerLink]="['/dashboard/updatebus', bus.id]" class="text-white font-semibold text-sm hover:underline flex items-center">
+      <div class="flex justify-between items-center space-x-4">
+        <!-- Delete Button -->
+        <button 
+          *ngIf="isAdmin" 
+          (click)="onDelete(bus.id)" 
+          class="flex items-center justify-center space-x-2 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300"
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            class="h-5 w-5" 
+            viewBox="0 0 20 20" 
+            fill="currentColor"
+          >
+            <path 
+              fill-rule="evenodd" 
+              d="M10 2a1 1 0 00-.894.553L8.382 4H5a1 1 0 100 2h10a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0010 2zm-3 6a1 1 0 011-1h6a1 1 0 011 1v8a1 1 0 01-1 1H8a1 1 0 01-1-1V8zm2 1a1 1 0 000 2h4a1 1 0 100-2H9z" 
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>Delete</span>
+        </button>
+      
+        <!-- Update Link -->
+        <a 
+          *ngIf="isAdmin" 
+          [routerLink]="['/dashboard/updatebus', bus.id]" 
+          class="text-black-500 font-semibold text-sm hover:underline flex items-center"
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            class="h-4 w-4 mr-2" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M11 5H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-4l4-4m0 0l-4 4m4-4v4"
+            />
+          </svg>
           Update
-          <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            class="ml-2 h-4 w-4" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M14 5l7 7m0 0l-7 7m7-7H3" 
+            />
           </svg>
         </a>
       </div>
-      <div class="flex justify-between items-center">
-        <a *ngIf="!isAdmin" [routerLink]="['/dashboard/bookticket', bus.id]" class="text-white font-semibold text-sm hover:underline flex items-center">
-          Book Ticket
-          <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-      </div>
+      
+
     </div>
   </div>
 </div>

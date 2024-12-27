@@ -1,0 +1,72 @@
+<div class="flex-1 max-w-7xl mx-auto px-4 py-8">
+    <!-- Welcome Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-[#1B355E] mb-4">Welcome to Bhutan Bus Booking System</h1>
+      <p class="text-gray-600">Select your destination and make your booking choice</p>
+    </div>
+  
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <!-- Total Bookings -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-[#1B355E] hover:scale-105 transition-transform duration-200">
+        <div class="flex items-center">
+          <span class="material-icons text-[#F1B434] text-3xl">confirmation_number</span>
+          <div class="ml-4">
+            <h3 class="text-sm opacity-80">Total Bus Bookings</h3>
+            <p class="text-2xl font-semibold">5</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Types of Buses -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-[#1B355E] hover:scale-105 transition-transform duration-200">
+        <div class="flex items-center">
+          <span class="material-icons text-[#F1B434] text-3xl">directions_bus</span>
+          <div class="ml-4">
+            <h3 class="text-sm opacity-80">Types of Buses</h3>
+            <p class="text-2xl font-semibold">8</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Reward Points -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-[#1B355E] hover:scale-105 transition-transform duration-200">
+        <div class="flex items-center">
+          <span class="material-icons text-[#F1B434] text-3xl">stars</span>
+          <div class="ml-4">
+            <h3 class="text-sm opacity-80">Reward Points</h3>
+            <p class="text-2xl font-semibold">150</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div>
+
+    <div class="recent-users">
+        <h2>Recent Users</h2>
+        
+        <table class="user-table">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Bus Route</th>
+              <th>Seat Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.id }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.phone }}</td>
+              <td>{{ user.busRoute }}</td>
+              <td>{{ user.seatNumber }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
