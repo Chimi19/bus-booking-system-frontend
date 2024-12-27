@@ -1,0 +1,49 @@
+.recent-users {
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .recent-users h2 {
+    font-size: 24px;
+    color: #1B355E;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-table th, .user-table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .user-table th {
+    background-color: #1B355E;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .user-table td {
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .user-table tr:nth-child(even) td {
+    background-color: #f1f1f1;
+  }
+  
+  .user-table tr:hover {
+    background-color: #f1b434;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .user-table td {
+    border-bottom: 1px solid #ddd;
+  }
+  
