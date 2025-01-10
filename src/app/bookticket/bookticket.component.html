@@ -1,1 +1,99 @@
-<p>bookticket works!</p>
+<div class="flex-grow flex items-center justify-center w-full pt-[6mm] my-0">
+  <div class="main-panel w-full max-w-2xl flex flex-col p-4 md:p-6" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0px; max-width: 80%; width: 80%; margin-left: auto; margin-right: auto; background-color: #F0BB78;">
+    <div class="content-wrapper w-full" style="width: 100%; padding: 20px; border-radius: 10px;">
+      <h1 style="font-size: 1.5rem; font-weight: 600; text-align: center; margin-bottom: 1.5rem;">Book Bus</h1>
+
+      <form [formGroup]="ticketForm"> 
+        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+          <label for="seatNo" class="block text-gray-700 mb-2">Seat Number</label>
+          <input
+            id="seatNo"
+            formControlName="seatNo"
+            class="text_color border p-3 rounded-lg"
+            type="number"
+            placeholder="Enter Seat Number"
+            min="1"
+            style="width: 100%; background-color: white; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;"
+            hidden
+          />
+          <div
+            *ngIf="ticketForm.get('seatNo')?.invalid && (ticketForm.get('seatNo')?.dirty || ticketForm.get('seatNo')?.touched)"
+            class="text-red-500"
+          >
+            <small *ngIf="ticketForm.get('seatNo')?.errors?.['required']">Seat Number is required.</small>
+            <small *ngIf="ticketForm.get('seatNo')?.errors?.['min']">Seat Number must be at least 1.</small>
+          </div>
+        
+      <!-- Seats UI -->
+<div class="seat-map">
+  <div class="row" *ngFor="let row of seatRows">
+    <ng-container *ngFor="let seat of row">
+      <div
+        class="seat-item seat-space"
+        [class.seat-available]="!seat.occupied && !seat.selected"
+        [class.seat-booked]="seat.selected"
+        [class.seat-unavailable]="seat.occupied"
+        (click)="!seat.occupied && selectSeat(seat)"
+        [ngClass]="{'disabled-seat': seat.occupied}"
+      >
+        <span>{{ seat.number }}</span>
+      </div>
+    </ng-container>
+  </div>
+</div>
+        <!-- Bus Number and Seats Availability -->
+        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+          <label for="busNo" class="block text-gray-700 mb-2">Bus Details</label>
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <input id="busNo" formControlName="busNo" class="text_color border p-3 rounded-lg" type="text" placeholder="Bus Number" style="flex: 1; min-width: 220px; background-color: white; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+          </div>
+        </div>
+
+        <!-- Location Inputs -->
+        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+          <label for="departureFrom" class="block text-gray-700 mb-2">Location</label>
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <input id="departureFrom" formControlName="departureFrom" class="text_color border p-3 rounded-lg" type="text" placeholder="Departure Location" style="flex: 1; min-width: 220px; background-color: white; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+            <input id="destination" formControlName="destination" class="text_color border p-3 rounded-lg" type="text" placeholder="Destination" style="flex: 1; min-width: 220px; background-color: white; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+
+          </div>
+        </div>
+
+        <!-- Departure Time -->
+        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+          <label for="departure" class="block text-gray-700 mb-2">Departure Time</label>
+          <input id="departure" formControlName="departure" class="text_color border p-3 rounded-lg" type="time" placeholder="HH:MM:SS" style="width: 100%; background-color: white; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+        </div>
+
+        <!-- Bus Model and Brand -->
+        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+          <label for="model" class="block text-gray-700 mb-2">Bus Model and Brand</label>
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <input id="model" formControlName="model" class="text_color border p-3 rounded-lg" type="text" placeholder="Bus Model" style="flex: 1; min-width: 220px; background-color: white; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+            <input id="brand" formControlName="brand" class="text_color border p-3 rounded-lg" type="text" placeholder="Bus Brand" style="flex: 1; min-width: 220px; background-color: white; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+          </div>
+        </div>
+
+        <!-- Amenities -->
+        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+          <label for="amenities" class="block text-gray-700 mb-2">Amenities</label>
+          <input id="amenities" formControlName="amenities" class="text_color border p-3 rounded-lg" type="text" placeholder="Amenities (e.g. Wi-Fi, AC)" style="width: 100%; background-color: white; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+        </div>
+
+        <!-- Price -->
+        <div class="div_design mb-4" style="margin-bottom: 0.75rem;">
+          <label for="price" class="block text-gray-700 mb-2">Price per Seat</label>
+          <input id="price" formControlName="price" class="text_color border p-3 rounded-lg" type="number" placeholder="In Nu." style="width: 100%; background-color: white; border: 1px solid #ccc; padding: 0.75rem; border-radius: 8px; box-sizing: border-box;" />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="div_design" style="text-align: center;">
+          <button (click)="onSubmit()" style="padding: 1rem; background-color: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; width: 50%; font-size: 1rem; font-weight: 600; display: block; margin: 0 auto;">
+            Book
+          </button>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

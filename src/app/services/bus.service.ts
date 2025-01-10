@@ -34,4 +34,19 @@ export class BusService {
   deleteBusbyId(busId: string): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}bus/${busId}`); 
 }
+
+getSeatState(busId: string): Observable<any> {
+  return this.http.get(`${this.baseUrl}bus/${busId}/seats`);
+}
+
+occupySeat(busId: string, seatNumber: string): Observable<any> {
+  return this.http.post(`${this.baseUrl}bus/${busId}/seats/${seatNumber}/occupy`, {});
+}
+bookSeat(busId: string | null, seatNumber: string): any {
+  if (busId) {
+    return this.http.post(`${this.baseUrl}bus/${busId}/seats/${seatNumber}/book`, {});
+  } else {
+    console.error('Bus ID is null');
+  }
+}
 }

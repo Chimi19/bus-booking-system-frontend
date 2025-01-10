@@ -11,6 +11,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AuthGuard } from '@core/guard/auth.guard';
 import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
+import { BookticketComponent } from './bookticket/bookticket.component';
+import { TicketListComponent } from './ticket-list/ticket-list.component';
 
 export const routes: Routes = [
   { path: '', component: SignupComponent }, // Default route
@@ -46,6 +48,14 @@ export const routes: Routes = [
     {
       path: 'adminpanel',
       component: AdminpanelComponent
+    },
+    {
+      path: 'bookticket/:id',
+      component: BookticketComponent
+    },
+    {
+      path:'ticketlist',
+      component: TicketListComponent
     }
   
   ]

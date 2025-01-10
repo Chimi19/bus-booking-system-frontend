@@ -9,4 +9,5 @@ export interface Bus {
     brand: string;                  
     amenities: string;              
     price: number;
+    date: string;
 }
