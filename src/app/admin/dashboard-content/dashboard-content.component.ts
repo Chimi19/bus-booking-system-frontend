@@ -7,11 +7,12 @@ import { Bus } from 'app/models/bus.model';
 import { AuthService } from 'app/services/auth.service';
 import { BusService } from 'app/services/bus.service';
 import { ToastrService } from 'ngx-toastr';
+import { TicketListComponent } from "../../ticket-list/ticket-list.component";
 
 @Component({
   selector: 'app-dashboard-content',
   standalone: true,
-  imports: [CommonModule, RouterModule,RouterLink],
+  imports: [CommonModule, RouterModule, RouterLink, TicketListComponent],
   templateUrl: './dashboard-content.component.html',
   styleUrl: './dashboard-content.component.css'
 })

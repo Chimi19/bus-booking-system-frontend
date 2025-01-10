@@ -41,7 +41,8 @@ export class UpdatebusComponent implements OnInit{
       model: ['', Validators.required],
       brand: ['', Validators.required],
       amenities: ['', Validators.required],
-      price: ['', Validators.required]
+      price: ['', Validators.required],
+      date:['',Validators.required]
     });
   }
 
@@ -59,6 +60,7 @@ export class UpdatebusComponent implements OnInit{
             console.log(response); 
             if (response.status) {
                 const bus = response.data.bus; 
+                
                 this.busForm.patchValue({
                     busNo: bus.busNo,
                     seatsAvailability: bus.seatsAvailability,
@@ -68,7 +70,8 @@ export class UpdatebusComponent implements OnInit{
                     model: bus.model,
                     brand: bus.brand,
                     amenities: bus.amenities,
-                    price: bus.price
+                    price: bus.price,
+                    date: bus.date,
                 });
             } else {
                 this.errorMessage = 'Bus data not found.';
@@ -81,29 +84,42 @@ export class UpdatebusComponent implements OnInit{
         }
     );
 }
-  onSubmit(): void {
-    if (this.busForm.valid) {
-      if (this.busId) {
-        this.loading = true;
-        this.busService.updateBus(this.busId, this.busForm.value).subscribe(
-          (response: Bus) => {
-            this.loading = false;
-            this.toastr.success('Bus Updated Sucessfully', 'Success');
-            this.errorMessage = null;
-            this.router.navigate(['/dashboard']);
-          },
-          (error) => {
-            this.loading = false;
-            this.errorMessage = 'Error updating bus: ' + error.message;
-            this.successMessage = null;
-          }
-        );
-      } else {
-        this.errorMessage = 'Bus ID is required for updating.';
-      }
-    } else {
-      this.errorMessage = 'Please fill in all required fields.';
+onSubmit(): void {
+  if (this.busForm.valid) {
+    const time = this.busForm.value.departure;
+    const hours = time.split(' ')[0].split(':')[0];
+    const minutes = time.split(' ')[0].split(':')[1];
+    const ampm = time.split(' ')[1];
+    let formattedHours = hours;
+    if (ampm === 'PM' && hours !== '12') {
+      formattedHours = (parseInt(hours) + 12).toString();
+    } else if (ampm === 'AM' && hours === '12') {
+      formattedHours = '00';
     }
+    const formattedTime = `${formattedHours}:${minutes}:00`;
+    this.busForm.patchValue({
+      departure: formattedTime
+    });
+
+    if (this.busId) {
+      this.loading = true;
+      this.busService.updateBus(this.busId, this.busForm.value).subscribe(
+        (response: Bus) => {
+          this.loading = false;
+          this.toastr.success('Bus Updated Sucessfully', 'Success');
+          this.errorMessage = null;
+          this.router.navigate(['/dashboard']);
+        },
+        (error) => {
+          this.loading = false;
+          this.errorMessage = 'Error updating bus: ' + error.message;
+          this.successMessage = null;
+        }
+      );
+    } else {
+      this.errorMessage = 'Bus ID is required for updating.';
+    }
+  } else {
+    this.errorMessage = 'Please fill in all required fields.';
   }
-  
-}
+}}

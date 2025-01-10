@@ -37,24 +37,37 @@ export class AddbusComponent {
         model: ['', Validators.required],                   
         brand: ['', Validators.required],                     
         amenities: ['', Validators.required],  
-        price: ['', Validators.required]             
+        price: ['', Validators.required]   ,
+        date:['', Validators.required]          
       });
       }
        onSubmit(): void {
       
         if (this.busForm.valid) {
           // Create busData from the form values
+          const time = this.busForm.value.departure;
+          const hours = time.split(' ')[0].split(':')[0];
+          const minutes = time.split(' ')[0].split(':')[1];
+          const ampm = time.split(' ')[1];
+          let formattedHours = hours;
+          if (ampm === 'PM' && hours !== '12') {
+            formattedHours = (parseInt(hours) + 12).toString();
+          } else if (ampm === 'AM' && hours === '12') {
+            formattedHours = '00';
+          }
+          const formattedTime = `${formattedHours}:${minutes}:00`;
           const busData: Bus = {
               id: this.busForm.value.id,
               busNo: this.busForm.value.busNo,
               seatsAvailability: this.busForm.value.seatsAvailability,
               departureFrom: this.busForm.value.departureFrom,
               destination: this.busForm.value.destination,
-              departure: this.busForm.value.departure,
+              departure: formattedTime,
               model: this.busForm.value.model,
               brand: this.busForm.value.brand,
               amenities: this.busForm.value.amenities,
-              price: this.busForm.value.price
+              price: this.busForm.value.price,
+              date: this.busForm.value.date,
           };
   
           this.busService.addBus(busData).subscribe(

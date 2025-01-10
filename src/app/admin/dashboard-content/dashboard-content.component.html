@@ -1,4 +1,4 @@
-<div class="container mx-auto p-4">
+<div class="container mx-auto p-4" *ngIf="isAdmin" >
   <h2 class="text-xl font-semibold mb-4 text-gray-800">List of Buses</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     <div *ngFor="let bus of buses" class="relative flex flex-col bg-[#F0BB78] shadow-sm border border-slate-200 rounded-lg p-6">
@@ -15,7 +15,7 @@
         <strong>Departure From:</strong> {{ bus.departureFrom }}<br>
         <strong>Destination:</strong> {{ bus.destination }}<br>
         <strong>Departure Time:</strong> {{ bus.departure }}<br>
-        <strong>Model:</strong> {{ bus.model }}<br>
+        <strong>ModelQA:</strong> {{ bus.model }}<br>
         <strong>Brand:</strong> {{ bus.brand }}<br>
         <strong>Amenities:</strong> {{ bus.amenities }}<br>
       </p>
@@ -23,7 +23,7 @@
       <div class="flex justify-between items-center space-x-4">
         <!-- Delete Button -->
         <button 
-          *ngIf="isAdmin" 
+          
           (click)="onDelete(bus.id)" 
           class="flex items-center justify-center space-x-2 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300"
         >
@@ -41,6 +41,15 @@
           </svg>
           <span>Delete</span>
         </button>
+
+        <div class="flex justify-between items-center">
+          <a *ngIf="!isAdmin" [routerLink]="['/dashboard/bookticket', bus.id]" class="text-white font-semibold text-sm hover:underline flex items-center">
+            Book Ticket
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
       
         <!-- Update Link -->
         <a 
@@ -79,8 +88,15 @@
           </svg>
         </a>
       </div>
+
+
+
+      
       
 
     </div>
   </div>
+</div>
+<div *ngIf="!isAdmin">
+  <app-ticket-list></app-ticket-list>
 </div>

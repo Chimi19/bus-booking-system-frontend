@@ -23,4 +23,5 @@ export const appConfig: ApplicationConfig = {
       closeButton: true  // Optional: adds a close button
     })
   ]
+  
 };
